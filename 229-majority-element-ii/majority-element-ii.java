@@ -6,13 +6,11 @@ class Solution {
       }
       List<Integer> ans = new ArrayList<>();
       int maj = nums.length/3;
-
-      for(Map.Entry<Integer,Integer> x : map.entrySet()){
-        int element = x.getKey();
-        int count = x.getValue();
-
-        if(count>maj){
-            ans.add(element);
+      
+      Set<Integer> keySet = map.keySet();
+      for(Integer key: keySet){
+        if(map.get(key)>maj){
+            ans.add(key);
         }
       }  
       return ans;

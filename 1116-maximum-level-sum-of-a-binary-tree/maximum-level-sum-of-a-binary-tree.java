@@ -14,14 +14,12 @@ class Solution {
         while (!q.isEmpty()) {
             int size = q.size();
             int levelSum = 0;
-            level++; // Increase level each time we move to a new level in the tree
-
-            // Process nodes at the current level
+            level++; 
+            
             for (int i = 0; i < size; i++) {
                 TreeNode currNode = q.remove();
                 levelSum += currNode.val;
 
-                // Add child nodes to the queue for the next level
                 if (currNode.left != null) {
                     q.add(currNode.left);
                 }
@@ -29,8 +27,6 @@ class Solution {
                     q.add(currNode.right);
                 }
             }
-
-            // Update max sum and level if the current level sum is higher
             if (levelSum > maxSum) {
                 maxSum = levelSum;
                 levelWithMaxSum = level;
